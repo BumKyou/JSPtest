@@ -10,13 +10,16 @@ public class DatabaseUtil {
 	public static Connection getConnection() {
 		Connection conn = null;
 		try {
-			// ÅØ½ºÆ® ÆÄÀÏ¿¡´Â ÇÑ ÁÙ¾¿ µ¥ÀÌÅÍº£ÀÌ½º ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¿© °ü¸®ÇÕ´Ï´Ù.
-	        BufferedReader in = new BufferedReader(new FileReader(ServerUtil.authenticationPath + "Database.txt"));
-			String dbURL = "jdbc:mysql://localhost:3306/" + in.readLine() + "?useSSL=false&useUnicode=true";
-			String dbID = in.readLine();
-			String dbPassword = in.readLine();
-			in.close();
-			Class.forName("com.mysql.jdbc.Driver");
+			// í…ìŠ¤íŠ¸ íŒŒì¼ì—ëŠ” í•œ ì¤„ì”© ë°ì´í„°ë² ì´ìŠ¤ ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì—¬ ê´€ë¦¬í•©ë‹ˆë‹¤.
+	        //BufferedReader in = new BufferedReader(new FileReader(ServerUtil.authenticationPath + "Database.txt"));
+			//String dbURL = "jdbc:mysql://localhost:3306/" + in.readLine() + "?useSSL=false&useUnicode=true";
+			//String dbID = in.readLine();
+			//String dbPassword = in.readLine();
+	        String dbURL ="jdbc:mysql://localhost:3306/RESERVATION?serverTimezone=UTC";
+			String dbID = "root";
+			String dbPassword = "root";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//in.close();	
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
 			e.printStackTrace();
