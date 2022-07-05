@@ -17,7 +17,7 @@ public class DatabaseUtil {
 			//String dbPassword = in.readLine();
 	        String dbURL ="jdbc:mysql://localhost:3306/RESERVATION?serverTimezone=UTC";
 			String dbID = "root";
-			String dbPassword = "root";
+			String dbPassword = "Passw0rd12#";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			//in.close();	
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
